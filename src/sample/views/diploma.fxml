@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0"
+      prefWidth="602.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" spacing="10"
+      fx:controller="sample.controllers.dipController">
+    <children>
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+            <content>
+                <TableView fx:id="dipTable" prefHeight="293.0" prefWidth="600.0">
+                    <columns>
+                        <TableColumn fx:id="titleCol" prefWidth="150" text="TITLE"/>
+                        <TableColumn fx:id="levelCol" prefWidth="150" text="LEVEL"/>
+                        <TableColumn fx:id="dodCol" prefWidth="150" text="DATE OF DIPLOMA"/>
+                        <TableColumn fx:id="Employee" prefWidth="150" text="Employee"/>
+                    </columns>
+                </TableView>
+            </content>
+        </ScrollPane>
+        <HBox prefHeight="109.0" prefWidth="600.0">
+            <children>
+                <VBox prefHeight="108.0" prefWidth="424.0">
+                    <children>
+                        <GridPane vgap="20" hgap="50">
+                            <padding>
+                                <Insets top="5" right="5" bottom="5" left="5"/>
+                            </padding>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <Label text="ID:"/>
+                                <Label text="Title:" GridPane.rowIndex="1"/>
+                                <Label text="Date Of Diploma:" GridPane.rowIndex="2"/>
+                                <Label text="Employee: " GridPane.rowIndex="3"/>
+                                <Label text="Type:" GridPane.rowIndex="4"/>
+                                <TextField fx:id="idTF" GridPane.columnIndex="1"/>
+                                <TextField fx:id="titleTF" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                <DatePicker fx:id="dodDP" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                <ComboBox fx:id="empCB" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                                <CheckBox GridPane.columnIndex="1" GridPane.rowIndex="4" >Baccalaureate</CheckBox>
+                                <CheckBox GridPane.columnIndex="1" GridPane.rowIndex="5" >University</CheckBox>
+                                <CheckBox GridPane.columnIndex="1" GridPane.rowIndex="6" >Higher Studies</CheckBox>
+                            </children>
+                        </GridPane>
+                    </children>
+                </VBox>
+                <VBox prefHeight="108.0" prefWidth="193.0" spacing="15">
+                    <children>
+                        <Button fx:id="addDiploma" mnemonicParsing="false" text="Add/Edit Diploma"
+                                onAction="#handleAddDiploma"/>
+                        <Button fx:id="deleteDiploma" mnemonicParsing="false" text="Delete Diploma"
+                                onAction="#handleDeleteDiploma"/>
+                        <Button fx:id="clearFields" mnemonicParsing="false" text="Clear Fields"
+                                onAction="#handleClearFields"/>
+                    </children>
+                </VBox>
+            </children>
+            <HBox alignment="BOTTOM_CENTER">
+                <ImageView id="home_nav">
+                    <Image url="@/sample/images/arrow_nav.png"/>
+                </ImageView>
+            </HBox>
+        </HBox>
+    </children>
+</VBox>
