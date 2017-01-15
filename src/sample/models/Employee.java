@@ -2,23 +2,23 @@ package sample.models;
 
 import javafx.beans.property.SimpleStringProperty;
 
-public class employee{
+public class Employee {
     int id;
     SimpleStringProperty fName;
     SimpleStringProperty lName;
     SimpleStringProperty dob;
-    SimpleStringProperty salary;
+    int salary;
     SimpleStringProperty married;
 
-    public employee() {
+    public Employee() {
     }
 
-    public employee(int id, String fName, String lName, String dob, String  salary, String married) {
+    public Employee(int id, String fName, String lName, String dob, int  salary, String married) {
         this.id = id;
         this.fName = new SimpleStringProperty(fName);
         this.lName = new SimpleStringProperty(lName);
         this.dob = new SimpleStringProperty(dob);
-        this.salary = new SimpleStringProperty(salary);
+        this.salary =  salary;
         this.married = new SimpleStringProperty(married);
     }
 
@@ -66,16 +66,11 @@ public class employee{
         this.dob.set(dob);
     }
 
-    public String getSalary() {
-        return salary.get();
-    }
-
-    public SimpleStringProperty salaryProperty() {
+    public int getSalary() {
         return salary;
     }
-
-    public void setSalary(String salary) {
-        this.salary.set(salary);
+    public void setSalary(int salary) {
+        this.salary= salary;
     }
 
     public String getMarried() {
@@ -88,5 +83,17 @@ public class employee{
 
     public void setMarried(String married) {
         this.married.set(married);
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", fName=" + fName +
+                ", lName=" + lName +
+                ", dob=" + dob +
+                ", salary=" + salary +
+                ", married=" + married +
+                '}';
     }
 }

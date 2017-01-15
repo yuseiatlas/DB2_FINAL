@@ -17,21 +17,21 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("views/home.fxml"));
-        Parent empFile = FXMLLoader.load(getClass().getResource("views/employee.fxml"));
+        Parent empFile = FXMLLoader.load(getClass().getResource("views/emp.fxml"));
         Parent bonusFile = FXMLLoader.load(getClass().getResource("views/bonus.fxml"));
         Parent childFile = FXMLLoader.load(getClass().getResource("views/child.fxml"));
         Parent reportFile = FXMLLoader.load(getClass().getResource("views/report.fxml"));
         Parent vacFile = FXMLLoader.load(getClass().getResource("views/vacation.fxml"));
         Parent dipFile = FXMLLoader.load(getClass().getResource("views/diploma.fxml"));
         Scene homeScene = new Scene(root, 800, 430);
-        Scene empScene = new Scene(empFile, 600, 450);
+        Scene empScene = new Scene(empFile, 800, 430);
         Scene childScene = new Scene(childFile, 600, 450);
         Scene bonusScene = new Scene(bonusFile, 600, 450);
         Scene reportScene = new Scene(reportFile, 600, 450);
         Scene vacScene = new Scene(vacFile, 600, 450);
         Scene dipScene = new Scene(dipFile, 600, 450);
         primaryStage.setTitle("HR SYSTEM");
-        primaryStage.setScene(homeScene);
+        primaryStage.setScene(empScene);
         Button addEditEmp = (Button) root.lookup("#employeeBTN");
         Button addEditChild = (Button) root.lookup("#childBTN");
         Button addEditVac = (Button) root.lookup("#vacationBTN");
