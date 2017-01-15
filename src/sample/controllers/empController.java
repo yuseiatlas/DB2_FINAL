@@ -126,6 +126,7 @@ public class empController{
             callStmt.execute();
         }
         // Updating an existing employee => id not empty
+        // changes
         else {
             if (validateDate()) {
                 return;
