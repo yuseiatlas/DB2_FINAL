@@ -22,16 +22,16 @@
 <?import javafx.scene.control.RadioButton?>
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0"
       prefWidth="602.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" spacing="10"
-      fx:controller="sample.controllers.vacController">
+      fx:controller="sample.controllers.childController">
     <children>
         <ScrollPane fitToWidth="true" fitToHeight="true">
             <content>
-                <TableView fx:id="vacTable" prefHeight="293.0" prefWidth="600.0">
+                <TableView fx:id="childTable" prefHeight="293.0" prefWidth="600.0">
                     <columns>
-                        <TableColumn fx:id="empCol" prefWidth="150" text="EMPLOYEE"/>
-                        <TableColumn fx:id="bDateCol" prefWidth="150" text="BEGIN DATE"/>
-                        <TableColumn fx:id="eDateCol" prefWidth="150" text="END DATE"/>
-                        <TableColumn fx:id="typeCol" prefWidth="150" text="TYPE"/>
+                        <TableColumn fx:id="fNameCol" prefWidth="123.0" text="FIRST NAME"/>
+                        <TableColumn fx:id="dobCol" prefWidth="123" text="DATE OF BIRTH"/>
+                        <TableColumn fx:id="empCol" prefWidth="123" text="PARENT"/>
+                        <TableColumn fx:id="studyCol" prefWidth="230" text="FINISHED STUDIES?"/>
                     </columns>
                 </TableView>
             </content>
@@ -53,28 +53,29 @@
                             </rowConstraints>
                             <children>
                                 <Label text="ID:"/>
-                                <Label text="Employee:" GridPane.rowIndex="1"/>
-                                <Label text="Begin Date:" GridPane.rowIndex="2"/>
-                                <Label text="End Date:" GridPane.rowIndex="3"/>
-                                <Label text="Type:" GridPane.rowIndex="4"/>
+                                <Label text="Fist Name:" GridPane.rowIndex="1"/>
+                                <Label text="Date Of Birth:" GridPane.rowIndex="2"/>
+                                <Label text="Parent:" GridPane.rowIndex="3"/>
+                                <Label text="Finished Studies?: " GridPane.rowIndex="4"/>
                                 <TextField fx:id="idTF" GridPane.columnIndex="1"/>
-                                <ComboBox fx:id="empCB" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                                <DatePicker fx:id="bDateDP" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                                <DatePicker fx:id="eDateDP" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                                <TextField fx:id="fNameTF" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                <DatePicker fx:id="dobDP" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                <ComboBox fx:id="parentCB" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
                                 <HBox GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                    <RadioButton fx:id="pRB" style="-fx-padding: 5px">PAID</RadioButton>
-                                    <RadioButton fx:id="upRB" style="-fx-padding: 5px">UNPAID</RadioButton>
+                                    <RadioButton fx:id="yes" style="-fx-padding: 5px;">YES</RadioButton>
+                                    <RadioButton fx:id="no" style="-fx-padding: 5px;">NO</RadioButton>
                                 </HBox>
+                                <!--<TextField fx:id="marriedTF" GridPane.columnIndex="1" GridPane.rowIndex="4"/>-->
                             </children>
                         </GridPane>
                     </children>
                 </VBox>
                 <VBox prefHeight="108.0" prefWidth="193.0" spacing="15">
                     <children>
-                        <Button fx:id="addVacation" mnemonicParsing="false" text="Add/Edit Vacation"
-                                onAction="#handleAddVacation"/>
-                        <Button fx:id="deleteVacation" mnemonicParsing="false" text="Delete Vacation"
-                                onAction="#handleDeleteVacation"/>
+                        <Button fx:id="addChild" mnemonicParsing="false" text="Add/Edit Child"
+                                onAction="#handleAddChild"/>
+                        <Button fx:id="deleteChild" mnemonicParsing="false" text="Delete Child"
+                                onAction="#handleDeleteChild"/>
                         <Button fx:id="clearFields" mnemonicParsing="false" text="Clear Fields"
                                 onAction="#handleClearFields"/>
                     </children>
