@@ -7,13 +7,16 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import oracle.sql.DATE;
 import sample.models.Employee;
 
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class empController{
+public class empController {
 
     public TableView<Employee> employeesTable;
 
@@ -31,7 +34,7 @@ public class empController{
     public TextField dtitleTF;
     public ComboBox dlevelCB;
     public DatePicker ddateDP;
-     ToggleGroup group;
+    ToggleGroup group;
 
     Connection vDatabaseConnection;
     private ObservableList<Employee> empData;
@@ -56,7 +59,7 @@ public class empController{
         salaryCol.setCellValueFactory(new PropertyValueFactory<>("salary"));
         // connect
         DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
-        vDatabaseConnection = DriverManager.getConnection (
+        vDatabaseConnection = DriverManager.getConnection(
                 "jdbc:oracle:thin:@localhost:1521:orcl",
                 "uni",
                 "oracle"
@@ -90,6 +93,9 @@ public class empController{
         dobDP.getEditor().clear();
         yesRB.setSelected(false);
         noRB.setSelected(false);
+        dlevelCB.getEditor().clear();
+        dtitleTF.clear();
+        ddateDP.getEditor().clear();
     }
 
     @SuppressWarnings("Duplicates")
@@ -110,45 +116,55 @@ public class empController{
         employeesTable.setItems(empData);
     }
 
-    public void handleAddEmployee(ActionEvent actionEvent) throws SQLException {
-        // Adding an Employee => ID EMPTY
-        if (isNullOrWhiteSpace(idTF.getText()) && validateDate()) {
-            // validate data
-            String query = "{call ADDEMPLOYEE(?,?,?,?,?,?,?)}";
+    public void handleAddEmployee(ActionEvent actionEvent) throws SQLException, ParseException {
+        // adding user
+        if (isNullOrWhiteSpace(idTF.getText()) && addDataValid()) {
+            String query = "BEGIN ADDEMPLOYEE('%s','%s',date '%s','%s','%s',%d,date '%s'); end;";
+            query = String.format(query, fNameTF.getText(), lNameTF.getText(), dobDP.getValue(),
+                    ((RadioButton) group.getSelectedToggle()).getText().substring(0, 1),
+                    dtitleTF.getText(),
+                    getDiplomaLevel(dlevelCB.getSelectionModel().getSelectedItem().toString()),
+                    ddateDP.getValue());
             CallableStatement callStmt = vDatabaseConnection.prepareCall(query);
-            callStmt.setString(1, fNameTF.getText());
-            callStmt.setString(2, lNameTF.getText());
-            callStmt.setDate(3, java.sql.Date.valueOf(dobDP.getValue()));
-            callStmt.setString(4, ((RadioButton) group.getSelectedToggle()).getText().substring(0, 1));
-            callStmt.setString(5, dtitleTF.getText());
-            callStmt.setInt(6, getDiplomaLevel(dlevelCB.getSelectionModel().getSelectedItem().toString()));
-            callStmt.setDate(7, java.sql.Date.valueOf(ddateDP.getValue()));
             callStmt.execute();
         }
         // Updating an existing employee => id not empty
-        // changes
         else {
-            if (validateDate()) {
+            if (!editDataValid()) {
                 return;
             }
-
+            String query = "BEGIN MODIFYEMPLOYEE('%s','%s','%s',date '%s', '%s'); end;";
+            query = String.format(query, idTF.getText(), fNameTF.getText(), lNameTF.getText(),
+                    dobDP.getValue(),
+                    ((RadioButton) group.getSelectedToggle()).getText().substring(0, 1));
+            CallableStatement callStmt = vDatabaseConnection.prepareCall(query);
+            callStmt.execute();
         }
+        clearDate(true);
+        buildTableData();
     }
 
-    private boolean validateDate() {
-        return isNullOrWhiteSpace(fNameTF.getText()) || isNullOrWhiteSpace(lNameTF.getText()) ||
+    private boolean addDataValid() {
+        return !(isNullOrWhiteSpace(fNameTF.getText()) || isNullOrWhiteSpace(lNameTF.getText()) ||
                 isNullOrWhiteSpace(dobDP.getEditor().getText()) ||
                 isNullOrWhiteSpace(dtitleTF.getText()) || dlevelCB.getSelectionModel().isEmpty() ||
                 isNullOrWhiteSpace(ddateDP.getEditor().getText())
-                || group.getSelectedToggle() == null;
+                || group.getSelectedToggle() == null);
+    }
+
+    private boolean editDataValid() {
+        return !(isNullOrWhiteSpace(fNameTF.getText()) || isNullOrWhiteSpace(lNameTF.getText()) ||
+                isNullOrWhiteSpace(dobDP.getEditor().getText()) || isNullOrWhiteSpace(idTF.getText())
+                || group.getSelectedToggle() == null);
     }
 
     public void handleDeleteEmployee(ActionEvent actionEvent) {
     }
 
     public void handleClearFields(ActionEvent actionEvent) {
-
+        clearDate(false);
     }
+
     public static boolean isNullOrWhiteSpace(String value) {
         return value == null || value.trim().isEmpty();
     }
@@ -162,4 +178,5 @@ public class empController{
             return 3;
         }
     }
+
 }
