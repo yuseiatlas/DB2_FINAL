@@ -3,7 +3,7 @@ package sample.models;
 import javafx.beans.property.SimpleStringProperty;
 
 public class report{
-   // SimpleStringProperty id;
+    // SimpleStringProperty id;
     SimpleStringProperty employee;
     SimpleStringProperty salary;
 

@@ -50,13 +50,13 @@ public class reportController{
         reportTable.setItems(reportData);
     }
     public void handleSearch(ActionEvent actionEvent) throws SQLException {
-        String query="{?=call GETSALARY(?,?)}";
-        CallableStatement statement=vDatabaseConnection.prepareCall(query);
-        ResultSet rs=vDatabaseConnection.createStatement().executeQuery("select * from employee");
         if(searchField.getValue()==null){
             System.out.println("search field is null");
             return;
         }
+        String query="{?=call GETSALARY(?,?)}";
+        CallableStatement statement=vDatabaseConnection.prepareCall(query);
+        ResultSet rs=vDatabaseConnection.createStatement().executeQuery("select * from employee");
             reportData.clear();
         statement.setInt(2,searchField.getValue().getMonthValue());
         while(rs.next()){
