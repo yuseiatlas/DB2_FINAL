@@ -129,7 +129,7 @@ public class childController {
     }
     public void handleEditChild(ActionEvent actionEvent) throws SQLException {
         Statement statement = vDatabaseConnection.createStatement();
-        //three variable that holds the inputted date or the previously saved data depending on the user input
+        //three variable that holds the inptt
         String dob=(dobDP.getValue()==null)?DateOfBirth:dobDP.getValue().toString();
         String name=(fNameTF.getText()==null)?FirstName:fNameTF.getText();
         String choice = (group.getSelectedToggle() == yes) ? "Y" : "N";
