@@ -6,8 +6,18 @@ public class bonus {
     SimpleStringProperty employee;
     SimpleStringProperty amount;
     SimpleStringProperty date;
+    int employeeId;
 
-    public bonus(String employee, String amount, String date) {
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public bonus(int employeeId, String employee, String amount, String date) {
+        this.employeeId=employeeId;
         this.employee = new SimpleStringProperty(employee);
         this.amount = new SimpleStringProperty(amount);
         this.date = new SimpleStringProperty(date);

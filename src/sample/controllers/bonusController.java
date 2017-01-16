@@ -5,11 +5,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.apache.commons.lang3.StringUtils;
 import sample.models.bonus;
 import sample.models.child;
 
 import java.sql.*;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.Date;
 
 public class bonusController {
 
@@ -25,11 +27,13 @@ public class bonusController {
     //two lists to get the value of the id based on the combo box selection
     public ArrayList<Integer> idList;
     public ArrayList<String> stringList;
+    //list that holds the IDs of the all bonuses using idList an stringList
     public ArrayList<Integer> bonusID;
-    //three variables to hold the current (selected) child ID, date of birth and first name
+    //four variables to hold the current (selected) employee full name employee ID, date of bonues and amount of bonus
     public String employeeName;
     public String DateOfBonus;
     public int Amount;
+    public int EmployeeID;
     Connection vDatabaseConnection;
 
     public void initialize() throws SQLException {
@@ -44,16 +48,20 @@ public class bonusController {
         stringList=new ArrayList<>();
         bonusID=new ArrayList<>();
         bonusData=FXCollections.observableArrayList();
+
         empCol.setCellValueFactory(new PropertyValueFactory<>("employee"));
         amountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));
         dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
         buildComboBox();
         buildTableData();
         bonusTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            employeeName=((bonus)newSelection).getEmployee();
-            DateOfBonus=((bonus)newSelection).getDate();
-            Amount=Integer.parseInt(((bonus)newSelection).getAmount());
-            System.out.println(Amount);
+            if(newSelection!=null) {
+                employeeName = ((bonus) newSelection).getEmployee();
+                DateOfBonus = ((bonus) newSelection).getDate();
+                Amount = Integer.parseInt(((bonus) newSelection).getAmount());
+                EmployeeID = ((bonus) newSelection).getEmployeeId();
+                System.out.println(((bonus) newSelection).getEmployeeId());
+            }
         });
     }
     public void buildTableData() throws SQLException {
@@ -61,6 +69,7 @@ public class bonusController {
         String query = "Select * from bonus";
         ResultSet rs = stmt.executeQuery(query);
         bonusData.clear();
+        bonusID.clear();
         while (rs.next()) {
             bonusID.add(rs.getInt("id"));
             int employeeId = rs.getInt("employeeid");
@@ -69,26 +78,40 @@ public class bonusController {
             employeeRS.next();
             String amount = rs.getString("AMOUNT");
             String date = rs.getDate("DATEOFBONUS").toString();
-            bonusData.add(new bonus(employeeRS.getString("FIRSTNAME")+' '+employeeRS.getString("LASTNAME"),amount,date));
+            bonusData.add(new bonus(employeeId,employeeRS.getString("FIRSTNAME")+' '+employeeRS.getString("LASTNAME"),amount,date));
         }
         bonusTable.setItems(bonusData);
     }
 
 
     public void handleAddBonus(ActionEvent actionEvent) throws SQLException {
-        if(bonusTable.getSelectionModel().getSelectedItem()!=null){ //if a row is selected go to edit child
+        if(bonusTable.getSelectionModel().getSelectedItem()!=null){ //if a row is selected go to edit bonus
             handleEditBonus(actionEvent);
             //System.out.println("edit bonus");
-        }else{//else add a new child
+        }else{//else add a new bonus
+            if(StringUtils.isBlank(amountTF.getText())){
+                System.out.println("field left empty");
+                return;
+            }
+            if(empCB.getSelectionModel().getSelectedIndex()==-1){
+                System.out.println("no employee selects");
+                return;
+            }
+            if(dateDP.getValue()==null){
+                System.out.println("date is null");
+                return;
+            }
+            System.out.println(dateDP.getValue());
             Statement statement = vDatabaseConnection.createStatement();
-            //String choice = (group.getSelectedToggle() == yes) ? "Y" : "N";
             System.out.println(idList.get(stringList.indexOf(empCB.getValue())));
             String query = "begin" +
                     " ADDBONUS(" +
                      +idList.get(stringList.indexOf(empCB.getValue()))+
                     "," +amountTF.getText() + "," +
-                    "TO_DATE(\'" +dateDP.getValue()+ "\',\'YYYY-MM-DD\')); " +
+                    "TO_DATE(\'" +dateDP.getValue()+ "\',\'YYYY-MM-DD\')" +
+                    "); " +
                     "end;";
+            System.out.println(query);
             statement.execute(query);
             buildTableData();
             System.out.println("add child!");
@@ -96,46 +119,63 @@ public class bonusController {
     }
 
     public void handleEditBonus(ActionEvent actionEvent) throws SQLException {
-        amountTF.setText(null);
         Statement statement = vDatabaseConnection.createStatement();
-        //three variable that holds the inptt
+
+        //three variable that holds data of the chosen bonus is no data is inputted
+        if(dateDP.getValue()!=null)
+            System.out.println(dateDP.getValue().toString());
         String dob=(dateDP.getValue()==null)?DateOfBonus:dateDP.getValue().toString();
-        int amount=0; //(amountTF.getText()!=null)?Integer.parseInt(amountTF.getText()):Amount;
-        if(amountTF.getText()!=null){
+        int amount=0;
+        System.out.println("get text value "+amountTF.getText());
+        if(amountTF.getText().equals("")){
             System.out.println("in if");
-            amount=Integer.parseInt(amountTF.getText());
+            amount=Amount;
         }else{
             System.out.println("in else");
-            amount=Amount;
+            amount=Integer.parseInt(amountTF.getText());
         }
+        //if the user entered a new id take the new id else take the row's id
+        int id=(empCB.getSelectionModel().getSelectedIndex()==-1)?EmployeeID:idList.get(stringList.indexOf(empCB.getValue()));
+
         System.out.println("-----------------------------");
         System.out.println(dob);
         System.out.println(amount);
         System.out.println(bonusID.get(bonusTable.getSelectionModel().getSelectedIndex()));
-        //String choice = (group.getSelectedToggle() == yes) ? "Y" : "N";
+        System.out.println(id);
+        System.out.println("-----------------------------");
+
         String query="begin MODIFYBONUS(" +
                 ""+ bonusID.get(bonusTable.getSelectionModel().getSelectedIndex())+
                 ","+amount +
-                ",TO_DATE(\'" +dob+ "\',\'YYYY-MM-DD\'));" +
+                ",TO_DATE(\'" +dob+ "\',\'YYYY-MM-DD\'),"+
+                    id+");" +
                 "end;";
+        System.out.println(query);
         statement.execute(query);
         buildTableData();
     }
 
 
-    public void handleDeleteBonus(ActionEvent actionEvent) {
+    public void handleDeleteBonus(ActionEvent actionEvent) throws SQLException {
+        Statement statement=vDatabaseConnection.createStatement();
+        String query="begin DELETEBONUS(" +
+                ""+bonusID.get(bonusTable.getSelectionModel().getSelectedIndex()) +
+                ");  end;";
+        statement.execute(query);
+        buildTableData();
+        handleClearFields(actionEvent);
     }
 
     public void handleClearFields(ActionEvent actionEvent) {
+        bonusTable.getSelectionModel().clearSelection();
         idTF.setText("");
         dateDP.getEditor().clear();
         empCB.getSelectionModel().clearSelection();
         amountTF.setText("");
         //group.selectToggle(yes);
-        bonusTable.getSelectionModel().clearSelection();
     }
+    //builds combobox with the employee full name
     public void buildComboBox() throws SQLException {
-        //parentCB=new ComboBox();
         Statement stmt = vDatabaseConnection.createStatement();
         String query = "Select * from employee";
         ResultSet rs = stmt.executeQuery(query);

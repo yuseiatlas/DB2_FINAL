@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.apache.commons.lang3.StringUtils;
 import sample.models.child;
 
 import java.sql.*;
@@ -112,6 +113,13 @@ public class childController {
         if(childTable.getSelectionModel().getSelectedItem()!=null){ //if a row is selected go to edit child
             handleEditChild(actionEvent);
                 }else{//else add a new child
+            if(StringUtils.isBlank(fNameTF.getText()) ||
+                    parentCB.getSelectionModel().getSelectedIndex()==-1 ||
+                    dobDP.getValue()==null
+                    ){
+                System.out.println("error");
+                return;
+            }
             Statement statement = vDatabaseConnection.createStatement();
             String choice = (group.getSelectedToggle() == yes) ? "Y" : "N";
             System.out.println(idList.get(stringList.indexOf(parentCB.getValue())));
