@@ -11,7 +11,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class vacController{
+public class vacController {
 
     public TableView vacTable;
     public TableColumn empCol;
@@ -27,6 +27,7 @@ public class vacController{
     ToggleGroup group;
     Connection vDatabaseConnection;
     private ObservableList<Vacation> vacData;
+
     public void initialize() throws SQLException {
         idTF.setDisable(true);
         group = new ToggleGroup();
@@ -63,6 +64,7 @@ public class vacController{
             }
         });
     }
+
     @SuppressWarnings("Duplicates")
     private void buildTableData() throws SQLException {
         Statement stmt = vDatabaseConnection.createStatement();
@@ -80,7 +82,7 @@ public class vacController{
         vacTable.setItems(vacData);
     }
 
-    private String  getTypeName(int type) {
+    private String getTypeName(int type) {
         if (type == 1) {
             return "PAID";
         }
@@ -93,6 +95,7 @@ public class vacController{
         }
         return 2;
     }
+
     private void clearData(boolean allData) {
         if (allData) {
             vacData.clear();
@@ -114,30 +117,40 @@ public class vacController{
                 isNullOrWhiteSpace(eDateDP.getEditor().getText()) || empCB.getSelectionModel().isEmpty()
                 || group.getSelectedToggle() == null);
     }
+
     public void handleAddVacation(ActionEvent actionEvent) throws SQLException {
         // add Diploma
         if (isNullOrWhiteSpace(idTF.getText()) && dataValid()) {
             String query = "BEGIN ADDVACATION('%s',date '%s',date '%s',%d); end;";
-            query = String.format(query, getEmployeeID("h"),
+            query = String.format(query, getEmployeeID(empCB.getSelectionModel().getSelectedItem().toString()),
                     bDateDP.getValue(), eDateDP.getValue(), getTypeNumber(((RadioButton) group.getSelectedToggle()).getText()));
             CallableStatement callStmt = vDatabaseConnection.prepareCall(query);
             callStmt.execute();
-//        } else if (!isNullOrWhiteSpace(idTF.getText()) && dataValid()) {
-//            String query = "BEGIN MODIFYDIPLOMA('%s','%s',%d,date '%s'); end;";
-//            query = String.format(query, idTF.getText(), titleTF.getText(), getDiplomaLevel(((RadioButton) group.getSelectedToggle()).getText()),
-//                    dodDP.getValue());
-//            CallableStatement callStmt = vDatabaseConnection.prepareCall(query);
-//            callStmt.execute();
-//        }
-            clearData(true);
-            buildTableData();
+        } else if (!isNullOrWhiteSpace(idTF.getText()) && dataValid()) {
+            String query = "BEGIN MODIFYVACATION('%s',date '%s',date '%s',%d); end;";
+            query = String.format(query, idTF.getText(),
+                    bDateDP.getValue(), eDateDP.getValue(), getTypeNumber(((RadioButton) group.getSelectedToggle()).getText()));
+            CallableStatement callStmt = vDatabaseConnection.prepareCall(query);
+            callStmt.execute();
         }
+        clearData(true);
+        buildTableData();
     }
 
-    public void handleDeleteVacation(ActionEvent actionEvent) {
+    public void handleDeleteVacation(ActionEvent actionEvent) throws SQLException {
+        if (isNullOrWhiteSpace(idTF.getText()) || !dataValid()) {
+            return;
+        }
+        String query = "BEGIN DELETEVACATION('%s'); end;";
+        query = String.format(query, idTF.getText());
+        CallableStatement callStmt = vDatabaseConnection.prepareCall(query);
+        callStmt.execute();
+        clearData(true);
+        buildTableData();
     }
 
     public void handleClearFields(ActionEvent actionEvent) {
+        clearData(false);
     }
     @SuppressWarnings("Duplicates")
     private ObservableList<String> getEmployeeNames() throws SQLException {
