@@ -19,6 +19,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioButton?>
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0"
       prefWidth="602.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" spacing="10"
       fx:controller="sample.controllers.dipController">
@@ -30,7 +31,7 @@
                         <TableColumn fx:id="titleCol" prefWidth="150" text="TITLE"/>
                         <TableColumn fx:id="levelCol" prefWidth="150" text="LEVEL"/>
                         <TableColumn fx:id="dodCol" prefWidth="150" text="DATE OF DIPLOMA"/>
-                        <TableColumn fx:id="Employee" prefWidth="150" text="Employee"/>
+                        <TableColumn fx:id="empCol" prefWidth="150" text="Employee"/>
                     </columns>
                 </TableView>
             </content>
@@ -60,9 +61,9 @@
                                 <TextField fx:id="titleTF" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
                                 <DatePicker fx:id="dodDP" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
                                 <ComboBox fx:id="empCB" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-                                <CheckBox GridPane.columnIndex="1" GridPane.rowIndex="4" >Baccalaureate</CheckBox>
-                                <CheckBox GridPane.columnIndex="1" GridPane.rowIndex="5" >University</CheckBox>
-                                <CheckBox GridPane.columnIndex="1" GridPane.rowIndex="6" >Higher Studies</CheckBox>
+                                <RadioButton fx:id="bacRB" GridPane.columnIndex="1" GridPane.rowIndex="4" >Baccalaureate</RadioButton>
+                                <RadioButton fx:id="uniRB" GridPane.columnIndex="1" GridPane.rowIndex="5" >University</RadioButton>
+                                <RadioButton fx:id="hsRB" GridPane.columnIndex="1" GridPane.rowIndex="6" >Higher Studies</RadioButton>
                             </children>
                         </GridPane>
                     </children>

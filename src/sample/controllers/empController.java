@@ -67,7 +67,7 @@ public class empController {
         buildTableData();
         employeesTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-                clearDate(false);
+                clearData(false);
                 idTF.setText(String.valueOf(newSelection.getId()));
                 fNameTF.setText(newSelection.getfName());
                 lNameTF.setText(newSelection.getlName());
@@ -83,8 +83,8 @@ public class empController {
 
     }
 
-    private void clearDate(boolean allDate) {
-        if (allDate) {
+    private void clearData(boolean allData) {
+        if (allData) {
             empData.clear();
         }
         idTF.clear();
@@ -140,7 +140,7 @@ public class empController {
             CallableStatement callStmt = vDatabaseConnection.prepareCall(query);
             callStmt.execute();
         }
-        clearDate(true);
+        clearData(true);
         buildTableData();
     }
 
@@ -166,12 +166,12 @@ public class empController {
         query = String.format(query, idTF.getText());
         CallableStatement callStmt = vDatabaseConnection.prepareCall(query);
         callStmt.execute();
-        clearDate(true);
+        clearData(true);
         buildTableData();
     }
 
     public void handleClearFields(ActionEvent actionEvent) {
-        clearDate(false);
+        clearData(false);
     }
 
     public static boolean isNullOrWhiteSpace(String value) {
