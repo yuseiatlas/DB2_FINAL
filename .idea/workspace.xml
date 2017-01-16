@@ -4,7 +4,6 @@
     <list default="true" id="03f208ae-2827-4c68-af2c-0d3e8322cac7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DB2_FINAL/sample/controllers/vacController.class" afterPath="$PROJECT_DIR$/out/production/DB2_FINAL/sample/controllers/vacController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/controllers/vacController.java" afterPath="$PROJECT_DIR$/src/sample/controllers/vacController.java" />
     </list>
     <ignored path="DB2_FINAL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1280,7 +1279,7 @@
       <workItem from="1484504694219" duration="105000" />
       <workItem from="1484504857020" duration="15090000" />
       <workItem from="1484551281097" duration="17236000" />
-      <workItem from="1484572700647" duration="4675000" />
+      <workItem from="1484572700647" duration="4692000" />
     </task>
     <task id="LOCAL-00001" summary="small changes">
       <created>1484515944077</created>
@@ -1324,11 +1323,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484575933245</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Finishes Vacation!">
+      <created>1484578212623</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1484578212623</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39013000" />
+    <option name="totallyTimeSpent" value="39030000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
