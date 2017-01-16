@@ -66,7 +66,7 @@ public class vacController {
     }
 
     @SuppressWarnings("Duplicates")
-    private void buildTableData() throws SQLException {
+    public void buildTableData() throws SQLException {
         Statement stmt = vDatabaseConnection.createStatement();
         String query = "Select * from VACATION";
         ResultSet rs = stmt.executeQuery(query);
@@ -96,7 +96,7 @@ public class vacController {
         return 2;
     }
 
-    private void clearData(boolean allData) {
+    public void clearData(boolean allData) {
         if (allData) {
             vacData.clear();
         }
