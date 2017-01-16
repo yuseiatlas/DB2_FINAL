@@ -85,6 +85,8 @@ public class dipController {
     }
 
     public void handleAddDiploma(ActionEvent actionEvent) throws SQLException {
+        System.out.println(((RadioButton) group.getSelectedToggle()).getText());
+        System.out.println(getDiplomaLevel(((RadioButton) group.getSelectedToggle()).getText()));
         // add Diploma
         if (isNullOrWhiteSpace(idTF.getText()) && dataValid()) {
             String query = "BEGIN ADDIPLOMA('%s',%d,date '%s','%s'); end;";
@@ -97,7 +99,7 @@ public class dipController {
             query = String.format(query, idTF.getText(), titleTF.getText(), getDiplomaLevel(((RadioButton) group.getSelectedToggle()).getText()),
                     dodDP.getValue());
             CallableStatement callStmt = vDatabaseConnection.prepareCall(query);
-            callStmt.execute();
+                callStmt.execute();
         }
         clearData(true);
         buildTableData();
@@ -191,9 +193,9 @@ public class dipController {
 
     @SuppressWarnings("Duplicates")
     private int getDiplomaLevel(String level) {
-        if (Objects.equals(level, "baccalaureate")) {
+        if (Objects.equals(level, "Baccalaureate")) {
             return 1;
-        } else if (Objects.equals(level, "university")) {
+        } else if (Objects.equals(level, "University")) {
             return 2;
         } else {
             return 3;
@@ -222,5 +224,11 @@ public class dipController {
             id = rs.getString("DIPCOUNT");
         }
         return Integer.parseInt(id);
+    }
+
+    public void handleRefresh(ActionEvent actionEvent) throws SQLException {
+        clearData(true);
+        buildTableData();
+        empCB.setItems(getEmployeeNames());
     }
 }

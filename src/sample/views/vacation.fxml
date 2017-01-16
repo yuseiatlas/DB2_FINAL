@@ -77,6 +77,8 @@
                                 onAction="#handleDeleteVacation"/>
                         <Button fx:id="clearFields" mnemonicParsing="false" text="Clear Fields"
                                 onAction="#handleClearFields"/>
+                        <Button fx:id="refresh" mnemonicParsing="false" text="Refresh"
+                                onAction="#handleRefresh"/>
                     </children>
                 </VBox>
             </children>

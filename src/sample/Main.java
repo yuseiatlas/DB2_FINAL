@@ -31,7 +31,7 @@ public class Main extends Application {
         Scene vacScene = new Scene(vacFile, 600, 450);
         Scene dipScene = new Scene(dipFile, 600, 450);
         primaryStage.setTitle("HR SYSTEM");
-        primaryStage.setScene(vacScene);
+        primaryStage.setScene(homeScene);
         Button addEditEmp = (Button) root.lookup("#employeeBTN");
         Button addEditChild = (Button) root.lookup("#childBTN");
         Button addEditVac = (Button) root.lookup("#vacationBTN");

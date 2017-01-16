@@ -192,4 +192,10 @@ public class vacController {
         }
         return firstName + " " + lastName;
     }
+
+    public void handleRefresh(ActionEvent actionEvent) throws SQLException {
+        clearData(true);
+        buildTableData();
+        empCB.setItems(getEmployeeNames());
+    }
 }

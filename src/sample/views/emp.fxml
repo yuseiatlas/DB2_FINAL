@@ -86,7 +86,10 @@
                                 onAction="#handleDeleteEmployee"/>
                         <Button layoutX="42.0" layoutY="125.0" fx:id="clearFields" mnemonicParsing="false" text="Clear Fields"
                                 onAction="#handleClearFields" />
-                        <ImageView id="home_nav" fitHeight="59.0" fitWidth="78.0" layoutX="130.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+                         <Button layoutX="42.0" layoutY="165.0" fx:id="refresh" mnemonicParsing="false" text="Refresh"
+                                 onAction="#handleRefresh" />
+
+                         <ImageView id="home_nav" fitHeight="59.0" fitWidth="78.0" layoutX="130.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
                             <Image url="@/sample/images/arrow_nav.png"/>
 
                         </ImageView>

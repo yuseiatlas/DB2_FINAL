@@ -155,13 +155,15 @@ public class empController {
     private boolean editDataValid() {
         return !(isNullOrWhiteSpace(fNameTF.getText()) || isNullOrWhiteSpace(lNameTF.getText()) ||
                 isNullOrWhiteSpace(dobDP.getEditor().getText()) || isNullOrWhiteSpace(idTF.getText())
-                || group.getSelectedToggle() == null);
+        );
     }
 
     public void handleDeleteEmployee(ActionEvent actionEvent) throws SQLException {
+        System.out.println("HELLO");
         if (!editDataValid()) {
             return;
         }
+        System.out.println("HEllo");
         String query = "BEGIN DELETEMPLOYEE('%s'); end;";
         query = String.format(query, idTF.getText());
         CallableStatement callStmt = vDatabaseConnection.prepareCall(query);
@@ -188,4 +190,8 @@ public class empController {
         }
     }
 
+    public void handleRefresh(ActionEvent actionEvent) throws SQLException {
+        clearData(true);
+        buildTableData();
+    }
 }

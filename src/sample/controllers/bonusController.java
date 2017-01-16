@@ -192,4 +192,9 @@ public class bonusController {
         empCB.setItems(list);
         empCB.setPromptText("Employee name");
     }
+
+    public void handleRefresh(ActionEvent actionEvent) throws SQLException {
+        buildTableData();
+        buildComboBox();
+    }
 }

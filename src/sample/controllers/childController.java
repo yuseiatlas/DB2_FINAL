@@ -170,4 +170,9 @@ public class childController {
         childTable.getSelectionModel().clearSelection();
 
     }
+
+    public void handleRefresh(ActionEvent actionEvent) throws SQLException {
+        buildTableData();
+        buildComboBox();
+    }
 }

@@ -2,11 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03f208ae-2827-4c68-af2c-0d3e8322cac7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DB2_FINAL/sample/controllers/dipController.class" afterPath="$PROJECT_DIR$/out/production/DB2_FINAL/sample/controllers/dipController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DB2_FINAL/sample/controllers/vacController.class" afterPath="$PROJECT_DIR$/out/production/DB2_FINAL/sample/controllers/vacController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DB2_FINAL/sample/Main.class" afterPath="$PROJECT_DIR$/out/production/DB2_FINAL/sample/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DB2_FINAL/sample/controllers/reportController.class" afterPath="$PROJECT_DIR$/out/production/DB2_FINAL/sample/controllers/reportController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DB2_FINAL/sample/models/report.class" afterPath="$PROJECT_DIR$/out/production/DB2_FINAL/sample/models/report.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/controllers/reportController.java" afterPath="$PROJECT_DIR$/src/sample/controllers/reportController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/models/report.java" afterPath="$PROJECT_DIR$/src/sample/models/report.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main.java" afterPath="$PROJECT_DIR$/src/sample/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/controllers/bonusController.java" afterPath="$PROJECT_DIR$/src/sample/controllers/bonusController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/controllers/childController.java" afterPath="$PROJECT_DIR$/src/sample/controllers/childController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/controllers/dipController.java" afterPath="$PROJECT_DIR$/src/sample/controllers/dipController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/controllers/empController.java" afterPath="$PROJECT_DIR$/src/sample/controllers/empController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/controllers/vacController.java" afterPath="$PROJECT_DIR$/src/sample/controllers/vacController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/views/bonus.fxml" afterPath="$PROJECT_DIR$/src/sample/views/bonus.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/views/child.fxml" afterPath="$PROJECT_DIR$/src/sample/views/child.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/views/diploma.fxml" afterPath="$PROJECT_DIR$/src/sample/views/diploma.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/views/emp.fxml" afterPath="$PROJECT_DIR$/src/sample/views/emp.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/views/vacation.fxml" afterPath="$PROJECT_DIR$/src/sample/views/vacation.fxml" />
     </list>
     <ignored path="DB2_FINAL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,67 +39,121 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+      <file leaf-file-name="diploma.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/views/diploma.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+            <state relative-caret-position="102">
+              <caret line="78" column="24" selection-start-line="78" selection-start-column="24" selection-end-line="79" selection-end-column="59" />
               <folding />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reportController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/controllers/reportController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
-              <folding />
-            </state>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="report.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/models/report.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="62" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Employee.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/models/Employee.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dipController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dipController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/controllers/dipController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1479">
-              <caret line="96" column="92" selection-start-line="96" selection-start-column="92" selection-end-line="96" selection-end-column="143" />
+            <state relative-caret-position="120">
+              <caret line="101" column="4" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bonusController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/controllers/bonusController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="189" column="38" selection-start-line="189" selection-start-column="38" selection-end-line="189" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vacController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/controllers/vacController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1058">
+              <caret line="198" column="43" selection-start-line="198" selection-start-column="43" selection-end-line="198" selection-end-column="43" />
               <folding>
-                <element signature="e#5075#5076#0" expanded="true" />
-                <element signature="e#5107#5108#0" expanded="true" />
-                <element signature="e#7107#7108#0" expanded="true" />
-                <element signature="e#7169#7170#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Diploma.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/models/Diploma.java">
+      <file leaf-file-name="emp.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/views/emp.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+            <state relative-caret-position="187">
+              <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vacation.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/views/vacation.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="77">
+              <caret line="80" column="49" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bonus.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/views/bonus.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="73" column="55" selection-start-line="73" selection-start-column="55" selection-end-line="73" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="child.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/views/child.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="81" column="55" selection-start-line="81" selection-start-column="55" selection-end-line="81" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="empController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/controllers/empController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="158" column="5" selection-start-line="158" selection-start-column="5" selection-end-line="158" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="childController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/controllers/childController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="176" column="5" selection-start-line="176" selection-start-column="5" selection-end-line="176" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,19 +178,23 @@
       <list>
         <option value="$PROJECT_DIR$/src/sample/models/Employee.java" />
         <option value="$PROJECT_DIR$/src/sample/views/employee.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/views/emp.fxml" />
         <option value="$PROJECT_DIR$/src/sample/models/diploma.java" />
         <option value="$PROJECT_DIR$/src/sample/models/Diploma.java" />
-        <option value="$PROJECT_DIR$/src/sample/views/diploma.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/controllers/empController.java" />
-        <option value="$PROJECT_DIR$/src/sample/views/vacation.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/controllers/dipController.java" />
         <option value="$PROJECT_DIR$/src/sample/models/Vacation.java" />
         <option value="$PROJECT_DIR$/src/sample/models/vacation.java" />
-        <option value="$PROJECT_DIR$/src/sample/controllers/vacController.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/controllers/reportController.java" />
         <option value="$PROJECT_DIR$/src/sample/models/report.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/sample/views/diploma.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/views/emp.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/views/child.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/views/vacation.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/views/bonus.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/controllers/childController.java" />
+        <option value="$PROJECT_DIR$/src/sample/controllers/bonusController.java" />
+        <option value="$PROJECT_DIR$/src/sample/controllers/vacController.java" />
+        <option value="$PROJECT_DIR$/src/sample/controllers/empController.java" />
+        <option value="$PROJECT_DIR$/src/sample/controllers/dipController.java" />
       </list>
     </option>
   </component>
@@ -288,6 +356,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DB2_FINAL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DB2_FINAL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -301,7 +391,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="SearchEverywhereHistoryKey" value="repo&#9;PSI&#9;JAVA://sample.models.report&#10;Main&#9;FILE&#9;file://C:/Users/Alaa/IdeaProjects/DB2_FINAL/src/sample/Main.java&#10;vac&#9;PSI&#9;JAVA://sample.controllers.vacController&#10;dipco&#9;FILE&#9;file://C:/Users/Alaa/IdeaProjects/DB2_FINAL/src/sample/controllers/dipController.java&#10;ch&#9;FILE&#9;file://C:/Users/Alaa/IdeaProjects/DB2_FINAL/src/sample/controllers/childController.java&#10;main&#9;FILE&#9;file://C:/Users/Alaa/IdeaProjects/DB2_FINAL/src/sample/Main.java&#10;dipl,a&#9;FILE&#9;file://C:/Users/Alaa/IdeaProjects/DB2_FINAL/src/sample/models/diploma.java&#10;Di&#9;PSI&#9;JAVA://sample.controllers.dipController&#10;chil&#9;FILE&#9;file://C:/Users/Alaa/IdeaProjects/DB2_FINAL/src/sample/controllers/childController.java&#10;child&#9;PSI&#9;JAVA://sample.controllers.childController&#10;emp.fx&#9;FILE&#9;file://C:/Users/Alaa/IdeaProjects/DB2_FINAL/src/sample/views/emp.fxml&#10;emo&#9;FILE&#9;file://C:/Users/Alaa/IdeaProjects/DB2_FINAL/src/sample/controllers/empController.java&#10;Employ&#9;PSI&#9;JAVA://sample.models.employee" />
+    <property name="SearchEverywhereHistoryKey" value="emp&#9;FILE&#9;file://C:/Users/yusei/Desktop/DB2_FINAL/src/sample/controllers/empController.java&#10;di[c&#9;PSI&#9;JAVA://sample.controllers.dipController&#10;vac&#9;FILE&#9;file://C:/Users/yusei/Desktop/DB2_FINAL/src/sample/controllers/vacController.java&#10;em&#9;FILE&#9;file://C:/Users/yusei/Desktop/DB2_FINAL/src/sample/controllers/empController.java&#10;di&#9;FILE&#9;file://C:/Users/yusei/Desktop/DB2_FINAL/src/sample/controllers/dipController.java&#10;bo&#9;FILE&#9;file://C:/Users/yusei/Desktop/DB2_FINAL/src/sample/controllers/bonusController.java&#10;chi&#9;FILE&#9;file://C:/Users/yusei/Desktop/DB2_FINAL/src/sample/controllers/childController.java&#10;chil&#9;FILE&#9;file://C:/Users/yusei/Desktop/DB2_FINAL/src/sample/views/child.fxml&#10;bonu&#9;FILE&#9;file://C:/Users/yusei/Desktop/DB2_FINAL/src/sample/views/bonus.fxml&#10;child&#9;FILE&#9;file://C:/Users/yusei/Desktop/DB2_FINAL/src/sample/views/child.fxml&#10;empl&#9;FILE&#9;file://C:/Users/yusei/Desktop/DB2_FINAL/src/sample/views/employee.fxml&#10;diplo&#9;FILE&#9;file://C:/Users/yusei/Desktop/DB2_FINAL/src/sample/views/diploma.fxml&#10;d&#9;FILE&#9;file://C:/Users/yusei/Desktop/DB2_FINAL/src/sample/controllers/dipController.java&#10;Main&#9;FILE&#9;file://C:/Users/yusei/Desktop/DB2_FINAL/src/sample/Main.java&#10;repo&#9;PSI&#9;JAVA://sample.models.report&#10;dipco&#9;FILE&#9;file://C:/Users/Alaa/IdeaProjects/DB2_FINAL/src/sample/controllers/dipController.java&#10;ch&#9;FILE&#9;file://C:/Users/Alaa/IdeaProjects/DB2_FINAL/src/sample/controllers/childController.java&#10;main&#9;FILE&#9;file://C:/Users/Alaa/IdeaProjects/DB2_FINAL/src/sample/Main.java&#10;dipl,a&#9;FILE&#9;file://C:/Users/Alaa/IdeaProjects/DB2_FINAL/src/sample/models/diploma.java&#10;Di&#9;PSI&#9;JAVA://sample.controllers.dipController&#10;emp.fx&#9;FILE&#9;file://C:/Users/Alaa/IdeaProjects/DB2_FINAL/src/sample/views/emp.fxml&#10;emo&#9;FILE&#9;file://C:/Users/Alaa/IdeaProjects/DB2_FINAL/src/sample/controllers/empController.java&#10;Employ&#9;PSI&#9;JAVA://sample.models.employee" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="136" />
@@ -643,7 +733,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484578212623</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Finishes Vacation!">
+      <created>1484580217761</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1484580217761</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -651,7 +748,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -661,7 +758,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32820514" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33504274" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33504274" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -729,12 +826,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1479">
           <caret line="96" column="92" selection-start-line="96" selection-start-column="92" selection-end-line="96" selection-end-column="143" />
-          <folding>
-            <element signature="e#5075#5076#0" expanded="true" />
-            <element signature="e#5107#5108#0" expanded="true" />
-            <element signature="e#7107#7108#0" expanded="true" />
-            <element signature="e#7169#7170#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -798,7 +890,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -822,12 +916,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2880">
           <caret line="96" column="92" selection-start-line="96" selection-start-column="92" selection-end-line="96" selection-end-column="143" />
-          <folding>
-            <element signature="e#5075#5076#0" expanded="true" />
-            <element signature="e#5107#5108#0" expanded="true" />
-            <element signature="e#7107#7108#0" expanded="true" />
-            <element signature="e#7169#7170#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -891,7 +980,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3330">
           <caret line="120" column="41" selection-start-line="120" selection-start-column="41" selection-end-line="120" selection-end-column="41" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1011,88 +1102,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/controllers/bonusController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-540">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/views/emp.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="76" column="47" selection-start-line="76" selection-start-column="47" selection-end-line="76" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/views/employee.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/views/diploma.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="65" column="56" selection-start-line="65" selection-start-column="56" selection-end-line="65" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/models/Employee.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/controllers/dipController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1479">
-          <caret line="96" column="92" selection-start-line="96" selection-start-column="92" selection-end-line="96" selection-end-column="143" />
-          <folding>
-            <element signature="e#5075#5076#0" expanded="true" />
-            <element signature="e#5107#5108#0" expanded="true" />
-            <element signature="e#7107#7108#0" expanded="true" />
-            <element signature="e#7169#7170#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/controllers/childController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/controllers/empController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="138" column="65" selection-start-line="138" selection-start-column="65" selection-end-line="138" selection-end-column="65" />
           <folding />
         </state>
       </provider>
@@ -1105,31 +1118,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/views/vacation.fxml">
+    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="65" column="58" selection-start-line="65" selection-start-column="58" selection-end-line="65" selection-end-column="58" />
+        <state relative-caret-position="190">
+          <caret line="38" column="66" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
           <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/controllers/vacController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/models/Diploma.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        <state relative-caret-position="102">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/models/report.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1137,15 +1145,117 @@
     <entry file="file://$PROJECT_DIR$/src/sample/controllers/reportController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="121">
-          <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+          <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/models/report.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/views/employee.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="62" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="62" />
+        <state relative-caret-position="111">
+          <caret line="67" column="43" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/views/diploma.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="78" column="24" selection-start-line="78" selection-start-column="24" selection-end-line="79" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/views/vacation.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="80" column="49" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/views/bonus.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="73" column="55" selection-start-line="73" selection-start-column="55" selection-end-line="73" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/views/emp.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/views/child.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="81" column="55" selection-start-line="81" selection-start-column="55" selection-end-line="81" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/controllers/childController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="176" column="5" selection-start-line="176" selection-start-column="5" selection-end-line="176" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/controllers/bonusController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="189" column="38" selection-start-line="189" selection-start-column="38" selection-end-line="189" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/controllers/vacController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1058">
+          <caret line="198" column="43" selection-start-line="198" selection-start-column="43" selection-end-line="198" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/controllers/empController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="158" column="5" selection-start-line="158" selection-start-column="5" selection-end-line="158" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/controllers/dipController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="101" column="4" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="4" />
           <folding />
         </state>
       </provider>
