@@ -158,7 +158,16 @@ public class empController {
                 || group.getSelectedToggle() == null);
     }
 
-    public void handleDeleteEmployee(ActionEvent actionEvent) {
+    public void handleDeleteEmployee(ActionEvent actionEvent) throws SQLException {
+        if (!editDataValid()) {
+            return;
+        }
+        String query = "BEGIN DELETEMPLOYEE('%s'); end;";
+        query = String.format(query, idTF.getText());
+        CallableStatement callStmt = vDatabaseConnection.prepareCall(query);
+        callStmt.execute();
+        clearDate(true);
+        buildTableData();
     }
 
     public void handleClearFields(ActionEvent actionEvent) {
