@@ -121,7 +121,7 @@ public class dipController {
     public void handleClearFields(ActionEvent actionEvent) {
         clearData(false);
     }
-
+    @SuppressWarnings("Duplicates")
     private String getEmpName(String empID) throws SQLException {
         String query = "select FIRSTNAME, LASTNAME from EMPLOYEE WHERE ID = " + empID;
         Statement stmt = vDatabaseConnection.createStatement();
@@ -152,7 +152,7 @@ public class dipController {
         }
         return levelName;
     }
-
+    @SuppressWarnings("Duplicates")
     private ObservableList<String> getEmployeeNames() throws SQLException {
         ObservableList<String> names = FXCollections.observableArrayList();
         String query = "select FIRSTNAME,LASTNAME from EMPLOYEE ";

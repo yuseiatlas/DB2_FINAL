@@ -19,19 +19,17 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.RadioButton?>
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0"
       prefWidth="602.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" spacing="10"
-      fx:controller="sample.controllers.vacController">
+      fx:controller="sample.controllers.bonusController">
     <children>
         <ScrollPane fitToWidth="true" fitToHeight="true">
             <content>
-                <TableView fx:id="vacTable" prefHeight="293.0" prefWidth="600.0">
+                <TableView fx:id="bonusTable" prefHeight="293.0" prefWidth="600.0">
                     <columns>
-                        <TableColumn fx:id="empCol" prefWidth="150" text="EMPLOYEE"/>
-                        <TableColumn fx:id="bDateCol" prefWidth="150" text="BEGIN DATE"/>
-                        <TableColumn fx:id="eDateCol" prefWidth="150" text="END DATE"/>
-                        <TableColumn fx:id="typeCol" prefWidth="150" text="TYPE"/>
+                        <TableColumn fx:id="empCol" prefWidth="200" text="EMPLOYEE"/>
+                        <TableColumn fx:id="amountCol" prefWidth="200" text="AMOUNT"/>
+                        <TableColumn fx:id="dateCol" prefWidth="200" text="DATE"/>
                     </columns>
                 </TableView>
             </content>
@@ -54,27 +52,22 @@
                             <children>
                                 <Label text="ID:"/>
                                 <Label text="Employee:" GridPane.rowIndex="1"/>
-                                <Label text="Begin Date:" GridPane.rowIndex="2"/>
-                                <Label text="End Date:" GridPane.rowIndex="3"/>
-                                <Label text="Type:" GridPane.rowIndex="4"/>
+                                <Label text="Amount:" GridPane.rowIndex="2"/>
+                                <Label text="Date:" GridPane.rowIndex="3"/>
                                 <TextField fx:id="idTF" GridPane.columnIndex="1"/>
                                 <ComboBox fx:id="empCB" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                                <DatePicker fx:id="bDateDP" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                                <DatePicker fx:id="eDateDP" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-                                <HBox GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                    <RadioButton fx:id="pRB" style="-fx-padding: 5px">PAID</RadioButton>
-                                    <RadioButton fx:id="upRB" style="-fx-padding: 5px">UNPAID</RadioButton>
-                                </HBox>
+                                <TextField fx:id="amountTF" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                <DatePicker fx:id="dateDP" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
                             </children>
                         </GridPane>
                     </children>
                 </VBox>
                 <VBox prefHeight="108.0" prefWidth="193.0" spacing="15">
                     <children>
-                        <Button fx:id="addVacation" mnemonicParsing="false" text="Add/Edit Vacation"
-                                onAction="#handleAddVacation"/>
-                        <Button fx:id="deleteVacation" mnemonicParsing="false" text="Delete Vacation"
-                                onAction="#handleDeleteVacation"/>
+                        <Button fx:id="addChild" mnemonicParsing="false" text="Add/Edit Bonus"
+                                onAction="#handleAddBonus"/>
+                        <Button fx:id="deleteChild" mnemonicParsing="false" text="Delete Bonus"
+                                onAction="#handleDeleteBonus"/>
                         <Button fx:id="clearFields" mnemonicParsing="false" text="Clear Fields"
                                 onAction="#handleClearFields"/>
                     </children>
