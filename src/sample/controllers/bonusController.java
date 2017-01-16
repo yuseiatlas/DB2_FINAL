@@ -48,7 +48,7 @@ public class bonusController {
         stringList=new ArrayList<>();
         bonusID=new ArrayList<>();
         bonusData=FXCollections.observableArrayList();
-
+        idTF.setDisable(true);
         empCol.setCellValueFactory(new PropertyValueFactory<>("employee"));
         amountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));
         dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
@@ -61,6 +61,7 @@ public class bonusController {
                 Amount = Integer.parseInt(((bonus) newSelection).getAmount());
                 EmployeeID = ((bonus) newSelection).getEmployeeId();
                 System.out.println(((bonus) newSelection).getEmployeeId());
+                idTF.setText(Integer.toString(((bonus) newSelection).getId()));
             }
         });
     }
@@ -78,7 +79,7 @@ public class bonusController {
             employeeRS.next();
             String amount = rs.getString("AMOUNT");
             String date = rs.getDate("DATEOFBONUS").toString();
-            bonusData.add(new bonus(employeeId,employeeRS.getString("FIRSTNAME")+' '+employeeRS.getString("LASTNAME"),amount,date));
+            bonusData.add(new bonus(employeeId,employeeRS.getString("FIRSTNAME")+' '+employeeRS.getString("LASTNAME"),amount,date,rs.getInt("id")));
         }
         bonusTable.setItems(bonusData);
     }
@@ -90,15 +91,16 @@ public class bonusController {
             //System.out.println("edit bonus");
         }else{//else add a new bonus
             if(StringUtils.isBlank(amountTF.getText())){
-                System.out.println("field left empty");
+                showAlert("The \"Amount\" field is left empty");
                 return;
             }
             if(empCB.getSelectionModel().getSelectedIndex()==-1){
                 System.out.println("no employee selects");
+                showAlert("You didn't select any employees");
                 return;
             }
             if(dateDP.getValue()==null){
-                System.out.println("date is null");
+                showAlert("You didn't specify the date value");
                 return;
             }
             System.out.println(dateDP.getValue());
@@ -196,5 +198,13 @@ public class bonusController {
     public void handleRefresh(ActionEvent actionEvent) throws SQLException {
         buildTableData();
         buildComboBox();
+    }
+    public void showAlert(String message){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error message");
+        alert.setHeaderText("Information Alert");
+        alert.setContentText(message);
+        alert.show();
+
     }
 }

@@ -3,10 +3,7 @@ package sample.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.models.report;
 
@@ -51,7 +48,8 @@ public class reportController{
     }
     public void handleSearch(ActionEvent actionEvent) throws SQLException {
         if(searchField.getValue()==null){
-            System.out.println("search field is null");
+
+            showAlert("You didn't choose a month!");
             return;
         }
         String query="{?=call GETSALARY(?,?)}";
@@ -85,5 +83,13 @@ public class reportController{
 //        statement.execute();
 //        //System.out.println(statement.getInt(1));
 //        buildTableData();
+    }
+    public void showAlert(String message){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error message");
+        alert.setHeaderText("Information Alert");
+        alert.setContentText(message);
+        alert.show();
+
     }
 }

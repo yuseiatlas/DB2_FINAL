@@ -48,7 +48,7 @@ public class childController {
         );
         idList=new ArrayList<>();
         stringList=new ArrayList<>();
-
+        idTF.setDisable(true);
         childData = FXCollections.observableArrayList();
         group=new ToggleGroup();//to group the radio buttons together
         yes.setToggleGroup(group);
@@ -61,7 +61,7 @@ public class childController {
         fNameCol.setCellValueFactory(new PropertyValueFactory<>("fName"));
         dobCol.setCellValueFactory(new PropertyValueFactory<>("dob"));
         studyCol.setCellValueFactory(new PropertyValueFactory<>("finishedStudies"));
-        empCol.setCellValueFactory(new PropertyValueFactory<>("employeeid"));
+        empCol.setCellValueFactory(new PropertyValueFactory<>("fullName"));
 
         buildTableData();
 
@@ -70,6 +70,7 @@ public class childController {
             DateOfBirth=((child)newSelection).getDob();
             FirstName=((child)newSelection).getfName();
             System.out.println(childID);
+            idTF.setText(Integer.toString(childID));
         });
     }
 
@@ -84,7 +85,10 @@ public class childController {
             String date = rs.getDate("DATEOFBIRTH").toString();
             String finished = rs.getString("FINISHEDSTUDIES");
             int eid = rs.getInt("EMPLOYEEID");
-            childData.add(new child(id, fname, date, finished, Integer.toString(eid)));
+            ResultSet employeeRS=vDatabaseConnection.createStatement().executeQuery("select * from employee where id="+eid);
+            employeeRS.next();
+            String fullName=employeeRS.getString("FIRSTNAME")+' '+employeeRS.getString("LASTNAME");
+            childData.add(new child(id, fullName, fname, date, finished, Integer.toString(eid)));
         }
         childTable.setItems(childData);
         System.out.println(childTable);
@@ -117,7 +121,7 @@ public class childController {
                     parentCB.getSelectionModel().getSelectedIndex()==-1 ||
                     dobDP.getValue()==null
                     ){
-                System.out.println("error");
+                showAlert("You left a field empty!");
                 return;
             }
             Statement statement = vDatabaseConnection.createStatement();
@@ -174,5 +178,13 @@ public class childController {
     public void handleRefresh(ActionEvent actionEvent) throws SQLException {
         buildTableData();
         buildComboBox();
+    }
+    public void showAlert(String message){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error message");
+        alert.setHeaderText("Information Alert");
+        alert.setContentText(message);
+        alert.show();
+
     }
 }

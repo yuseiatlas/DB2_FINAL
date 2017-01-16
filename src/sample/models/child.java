@@ -8,6 +8,19 @@ public class child{
     SimpleStringProperty dob;
     SimpleStringProperty finishedStudies;
     SimpleStringProperty employeeid;
+    SimpleStringProperty fullName;
+
+    public String getFullName() {
+        return fullName.get();
+    }
+
+    public SimpleStringProperty fullNameProperty() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName.set(fullName);
+    }
 
     public child(int id, String fName, String dob, String finishedStudies, String employeeid) {
         this.id = id;
@@ -16,6 +29,15 @@ public class child{
         this.finishedStudies = new SimpleStringProperty(finishedStudies);
         this.employeeid = new SimpleStringProperty(employeeid);
     }
+    public child(int id, String fullName, String fName, String dob, String finishedStudies, String employeeid) {
+        this.fullName = new SimpleStringProperty(fullName);
+        this.fName = new SimpleStringProperty(fName);
+        this.dob = new SimpleStringProperty(dob);
+        this.finishedStudies = new SimpleStringProperty(finishedStudies);
+        this.employeeid = new SimpleStringProperty(employeeid);
+        this.id=id;
+    }
+
 
     public int getId() {
         return id;

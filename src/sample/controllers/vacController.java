@@ -3,8 +3,15 @@ package sample.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import sample.models.Vacation;
 
 import java.sql.*;
@@ -120,6 +127,10 @@ public class vacController {
 
     public void handleAddVacation(ActionEvent actionEvent) throws SQLException {
         // add Diploma
+        if(bDateDP.getValue().isAfter(eDateDP.getValue())){
+            showAlert("The Begin date is after the end date, your entry is invalid");
+            return;
+        }
         if (isNullOrWhiteSpace(idTF.getText()) && dataValid()) {
             String query = "BEGIN ADDVACATION('%s',date '%s',date '%s',%d); end;";
             query = String.format(query, getEmployeeID(empCB.getSelectionModel().getSelectedItem().toString()),
@@ -198,4 +209,13 @@ public class vacController {
         buildTableData();
         empCB.setItems(getEmployeeNames());
     }
+    public void showAlert(String message){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error message");
+        alert.setHeaderText("Information Alert");
+        alert.setContentText(message);
+        alert.show();
+
+    }
+
 }

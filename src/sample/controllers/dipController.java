@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.models.Diploma;
+import sample.models.report;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -25,6 +26,7 @@ public class dipController {
     public RadioButton uniRB;
     public RadioButton hsRB;
     ToggleGroup group;
+    public String EmployeeID;
     Connection vDatabaseConnection;
     private ObservableList<Diploma> dipData;
 
@@ -56,6 +58,8 @@ public class dipController {
                 LocalDate date = LocalDate.parse(diploma.getDod().split(" ")[0]);
                 dodDP.setValue(date);
                 empCB.setValue(diploma.getEmployee());
+                EmployeeID=((Diploma) newSelection).getEmployeeID();
+                System.out.println("EmployeeID is: "+EmployeeID);
                 if (Objects.equals(diploma.getLevel(), "baccalaureate")) {
                     bacRB.setSelected(true);
                 } else if (Objects.equals(diploma.getLevel(), "university")) {
@@ -78,7 +82,8 @@ public class dipController {
             int level = rs.getInt("DLEVEL");
             String dod = rs.getString("DATEOFDIPLOMA");
             String employee = getEmpName(rs.getString("EMPID"));
-            Diploma diploma = new Diploma(id, title, getLevelName(level), dod, employee);
+            //Diploma diploma = new Diploma(id, title, getLevelName(level), dod, employee);
+            Diploma diploma = new Diploma(id, title, getLevelName(level), dod, employee,rs.getString("EMPID"));
             dipData.add(diploma);
         }
         dipTable.setItems(dipData);
@@ -100,9 +105,54 @@ public class dipController {
                     dodDP.getValue());
             CallableStatement callStmt = vDatabaseConnection.prepareCall(query);
                 callStmt.execute();
+            updateEmployeeSalary(getDiplomaLevel(((RadioButton) group.getSelectedToggle()).getText()),EmployeeID);
+
         }
         clearData(true);
         buildTableData();
+    }
+
+    private void updateEmployeeSalary(int diplomaLevel,String empID) throws SQLException {
+        int salary = 0;
+        System.out.println("ID: " + empID + "LL" + diplomaLevel);
+        // get max diploma level
+        int maxDLevel = getMaxEmpLevel(empID);
+        System.out.println("Max Level: "+maxDLevel);
+            if (maxDLevel == 1) {
+                salary = 30000;
+            } else if (maxDLevel == 2) {
+                salary = 50000;
+            } else {
+                salary = 80000;
+            }
+
+//        String query = " update employee\n" +
+//                "            set BASESALARY = %d\n" +
+//                "            where ID = %s;";
+        String query ="update employee" +
+                " set BASESALARY="+salary+" where ID=\'"+empID+"\'";
+        //query = String.format(query, salary,empID);
+        System.out.println(query);
+        //PreparedStatement statement = vDatabaseConnection.prepareStatement(query);
+        Statement statement=vDatabaseConnection.createStatement();
+        statement.execute(query);
+    }
+
+    private int getMaxEmpLevel(String empID) throws SQLException {
+//        String query = "select max(DLEVEL) as MMAX from diploma where EMPID = " + empID;
+//        Statement stmt = vDatabaseConnection.createStatement();
+//        ResultSet rs = stmt.executeQuery(query);
+//        String maxLevel = null;
+//        while (rs.next()) {
+//            maxLevel = String.valueOf(rs.getInt("MMAX"));
+//        }
+        String query="{?=call GETMAXID(?)}";
+        CallableStatement statement=vDatabaseConnection.prepareCall(query);
+            statement.setString(2,empID);
+            statement.registerOutParameter(1, Types.INTEGER);
+            statement.execute();
+        System.out.println(statement.getInt(1));
+        return statement.getInt(1);
     }
 
     public void handleDeleteDiploma(ActionEvent actionEvent) throws SQLException {
@@ -116,6 +166,7 @@ public class dipController {
         query = String.format(query, idTF.getText());
         CallableStatement callStmt = vDatabaseConnection.prepareCall(query);
         callStmt.execute();
+        updateEmployeeSalary(0,EmployeeID);
         clearData(true);
         buildTableData();
     }

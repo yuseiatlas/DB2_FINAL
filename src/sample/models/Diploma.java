@@ -8,6 +8,7 @@ public class Diploma {
     SimpleStringProperty level;
     SimpleStringProperty dod;
     SimpleStringProperty employee;
+    SimpleStringProperty employeeID;
 
     public Diploma() {
     }
@@ -19,9 +20,28 @@ public class Diploma {
         this.dod = new SimpleStringProperty(dod);
         this.employee = new SimpleStringProperty(employee);
     }
-
+    public Diploma(String id, String title, String level, String dod, String employee, String employeeID) {
+        this.id = new SimpleStringProperty(id);
+        this.title = new SimpleStringProperty(title);
+        this.level = new SimpleStringProperty(level);
+        this.dod = new SimpleStringProperty(dod);
+        this.employee = new SimpleStringProperty(employee);
+        this.employeeID=new SimpleStringProperty(employeeID);
+    }
     public String getId() {
         return id.get();
+    }
+
+    public String getEmployeeID() {
+        return employeeID.get();
+    }
+
+    public SimpleStringProperty employeeIDProperty() {
+        return employeeID;
+    }
+
+    public void setEmployeeID(String employeeID) {
+        this.employeeID.set(employeeID);
     }
 
     public SimpleStringProperty idProperty() {

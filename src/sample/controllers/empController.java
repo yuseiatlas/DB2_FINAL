@@ -73,6 +73,7 @@ public class empController {
                 lNameTF.setText(newSelection.getlName());
                 LocalDate date = LocalDate.parse(newSelection.getDob().split(" ")[0]);
                 dobDP.setValue(date);
+                System.out.println(newSelection.getId());
                 if (Objects.equals(newSelection.getMarried(), "Y")) {
                     yesRB.setSelected(true);
                 } else {

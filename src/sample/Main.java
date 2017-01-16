@@ -8,14 +8,37 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import sample.models.Employee;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Connection vDatabaseConnection;
+        DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+        vDatabaseConnection = DriverManager.getConnection(
+                "jdbc:oracle:thin:@localhost:1521:orcl",
+                "uni",
+                "oracle"
+        );
+        Statement stmt = vDatabaseConnection.createStatement();
+        String query = "Select * from Employee";
+        ResultSet rs = stmt.executeQuery(query);
+        while (rs.next()) {
+            int id = rs.getInt("id");
+            String fName = rs.getString("FIRSTNAME");
+            String lName = rs.getString("LASTNAME");
+            String dob = rs.getString("DATEOFBIRTH");
+            int baseSalary = rs.getInt("BASESALARY");
+            String married = rs.getString("MARRIED");
+            Employee emp = new Employee(id, fName, lName, dob, baseSalary, married);
+            System.out.println(id+" "+baseSalary);
+        }
         Parent root = FXMLLoader.load(getClass().getResource("views/home.fxml"));
         Parent empFile = FXMLLoader.load(getClass().getResource("views/emp.fxml"));
         Parent bonusFile = FXMLLoader.load(getClass().getResource("views/bonus.fxml"));
